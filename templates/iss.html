@@ -1,0 +1,24 @@
+{% extends "index.html" %} {% block navigator %}
+<a class="nav-link fw-bold py-1 px-0" aria-current="page" href="/"
+  >Geo Locator</a
+>
+<a class="nav-link fw-bold py-1 px-0 active" href="/iss">ISS</a>
+{% endblock %} {% block form %}
+<form action="/iss" method="GET" accept-charset="utf-8">
+  <img
+    class="mb-4"
+    src="/static/ISS_spacecraft_model_1.png"
+    alt=""
+    width="250"
+    height="100"
+  />
+  <button class="w-100 btn btn-lg btn-primary" type="submit">
+    Track ISS now
+  </button>
+  <h6>Latitude:</h6>
+  <span>{{ latitude }}</span>
+  <h6>Longitude:</h6>
+  <span class="span_padding_bottom">{{ longitude }}</span>
+  <img class="mb-4" src="/static/globe.png" alt="" width="150" height="150" />
+</form>
+{% endblock %}
