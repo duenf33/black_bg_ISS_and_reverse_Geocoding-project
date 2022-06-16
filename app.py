@@ -19,6 +19,7 @@ def iss():
 
         data = {
             'message': 'success',
+            'format': 'json'
             }
         
         try:
@@ -26,12 +27,46 @@ def iss():
         except Exception as e:
             raise e
 
-        results['latitude'] = response.json()['iss_position']['latitude']
-        results['longitude'] = response.json()['iss_position']['longitude']
-        results['timestamp'] = response.json()['timestamp']
+        lat = response.json()['iss_position']['latitude']
+        lon = response.json()['iss_position']['longitude']
+        # results['timestamp'] = response.json()['timestamp']
+        results['latitude'] = lat
+        results['longitude'] = lon
+
+        lat, lon
 
         return render_template("iss.html", **results)
     return render_template("iss.html")
+
+@server.route('/get_coor', methods = ['GET', 'POST'])
+
+def get_coor():
+    if request.method == 'POST':
+
+        results = {}
+        results['address'] = request.form['address']
+
+        data = {
+        'key': ENV['PRIVATE_TOKEN'],
+        'q': results['address'],
+        'format': 'json'
+        }
+        try:
+            response = requests.get(ENV['URL'], params=data)
+        except Exception as e:
+            raise e
+
+        lat = response.json()[0]['lat']
+        lon = response.json()[0]['lon']
+
+        results['lat'] = lat
+        results['lon'] = lon
+        
+        lat, lon
+        # return lat, lon
+        return render_template("get_coor.html", **results)
+    return render_template("get_coor.html")
+
 
 @server.route('/', methods = ['GET', 'POST'])
 

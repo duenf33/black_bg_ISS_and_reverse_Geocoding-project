@@ -1,0 +1,24 @@
+{% extends "index.html" %} {% block navigator %}
+<a class="nav-link fw-bold py-1 px-0" aria-current="page" href="/"
+  >Input Lat/Lon</a
+>
+<a class="nav-link fw-bold py-1 px-0 active" href="#">Input Address</a>
+<a class="nav-link fw-bold py-1 px-0" href="/iss">Locate ISS</a>
+{% endblock %} {% block form %}
+<form action="/get_coor" method="POST" accept-charset="utf-8">
+  <img class="mb-4" src="/static/globe.png" alt="" width="150" height="150" />
+  <div class="form-floating">
+    <input type="text" name="address" class="form-control" id="floatingInput" />
+    <label for="floatingInput">Enter Address</label>
+  </div>
+  <button class="w-100 btn btn-lg btn-primary" type="submit">
+    Look Up Address
+  </button>
+  <h6>Address:</h6>
+  <span>{{ address }}</span>
+  <h6>Latitude:</h6>
+  <span>{{ lat }}</span>
+  <h6>Longitude:</h6>
+  <span class="span_padding_bottom">{{ lon }}</span>
+</form>
+{% endblock %}

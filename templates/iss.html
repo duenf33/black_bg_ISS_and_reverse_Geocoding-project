@@ -1,8 +1,9 @@
 {% extends "index.html" %} {% block navigator %}
 <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="/"
-  >Geo Locator</a
+  >Input Lat/Lon</a
 >
-<a class="nav-link fw-bold py-1 px-0 active" href="/iss">ISS</a>
+<a class="nav-link fw-bold py-1 px-0" href="/get_coor">Input Address</a>
+<a class="nav-link fw-bold py-1 px-0 active" href="#">Locate ISS</a>
 {% endblock %} {% block form %}
 <form action="/iss" method="GET" accept-charset="utf-8">
   <img

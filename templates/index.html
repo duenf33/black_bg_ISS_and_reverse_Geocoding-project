@@ -56,9 +56,12 @@
               class="nav-link fw-bold py-1 px-0 active"
               aria-current="page"
               href="#"
-              >Geo Locator</a
+              >Input Lat/Lon</a
             >
-            <a class="nav-link fw-bold py-1 px-0" href="/iss">ISS</a>
+            <a class="nav-link fw-bold py-1 px-0" href="/get_coor"
+              >Input Address</a
+            >
+            <a class="nav-link fw-bold py-1 px-0" href="/iss">Locate ISS</a>
             {% endblock %}
           </nav>
         </div>
@@ -73,14 +76,14 @@
             width="250"
             height="150"
           />
-          <h1 class="h3 mb-3 fw-normal">Find your Geo Location</h1>
+          <h1 class="h2 mb-3 fw-normal">Find your Geo Location</h1>
+          <h5 class="h5 mb-3 fw-normal">Enter your coordinates:</h5>
           <div class="form-floating">
             <input
               type="text"
               name="lat"
               class="form-control"
               id="floatingInput"
-              placeholder="123 street Ct"
             />
             <label for="floatingInput">Enter Latitude</label>
           </div>
@@ -90,7 +93,6 @@
               name="lon"
               class="form-control"
               id="floatingInput"
-              placeholder="123 street Ct"
             />
             <label for="floatingInput">Enter Longitude</label>
           </div>
